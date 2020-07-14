@@ -1,0 +1,1 @@
+memberSearchIndex = [{"p":"pieces","c":"Queen","l":"move(String, Piece[][], boolean)","url":"move-java.lang.String-pieces.Piece:A:A-boolean-"},{"p":"pieces","c":"Queen","l":"Queen(Boolean)","url":"Queen-java.lang.Boolean-"},{"p":"pieces","c":"Queen","l":"toString()"}]
