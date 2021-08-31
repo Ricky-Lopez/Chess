@@ -52,18 +52,7 @@ public class Chess {
 		
 		System.out.println();
 		
-		if(tokens[0].equals("resign")){									//Player resigns
-			//System.out.println("**match ends in resign");
-			if (player == true) {
-				System.out.println("Black wins");						//black wins
-			}
-			else {
-				System.out.println("White wins");						//white wins
-			}
-			
-			return;
-		}
-		
+		if(checkIfResign(tokens[0], player)) {return;} //Player resigns- match ends
 		
 		//check if valid move
 		
@@ -92,32 +81,13 @@ public class Chess {
 					
 					System.out.println();
 					
-					if(tokens[0].equals("resign")){								//Player resigns- match ends
-						//System.out.println("**match ends in resign");
-						if (player == true) {
-							System.out.println("Black wins");					//black wins
-						}
-						else {
-							System.out.println("White wins");					//white wins
-						}
-						
-						return;
-					}
+					if(checkIfResign(tokens[0], player)) {return;}			//Player resigns- match ends
 					
 				}
 				
 				else {															//valid move
-					if(tokens[0].equals("resign")){								//Player resigns- match ends
-						//System.out.println("**match ends in resign");
-						if (player == true) {
-							System.out.println("Black wins");					//black wins
-						}
-						else {
-							System.out.println("White wins");					//white wins
-						}
-						
-						return;
-					}
+					
+					if(checkIfResign(tokens[0], player)) {return;}			//Player resigns- match ends
 					invalid_move = false;
 				}
 			}
@@ -138,17 +108,7 @@ public class Chess {
 				
 				System.out.println();
 				
-				if(tokens[0].equals("resign")){								//Player resigns- match ends
-					//System.out.println("**match ends in resign");
-					if (player == true) {
-						System.out.println("Black wins");					//black wins
-					}
-					else {
-						System.out.println("White wins");					//white wins
-					}
-					
-					return;
-				}
+				if(checkIfResign(tokens[0], player)) {return;}			//Player resigns- match ends
 			}
 		}
 		
@@ -436,7 +396,7 @@ public class Chess {
 }	//out of main method
 	
 
-
+	
 	/**
 	 * Initializes all the pieces into the 2d array board
 	 * @param board The two-dimensional array board that holds all the piece information
@@ -542,6 +502,48 @@ public class Chess {
 	
 	
 	/////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+	
+	
+	//TODO: Finish checkIfValidInput()
+	public static boolean checkIfValidInput(String[] input) {
+		
+		if(input.length == 0) { return false; }		//empty input
+		
+		if(input.length == 1 && input[0] == "resign") { return true; }	//resignation input
+		
+		return true;
+	}
+	
+	
+	
+	//TODO: Finish checkIfValidMove()
+	public static void checkIfValidMove() {
+		return;
+	}
+	
+	
+	
+	/**
+	 * Checks if specified String from the first token of System.in is a resignation, and ends the game if so.
+	 * @param token the first token received from System.In
+	 * @param player that has initiative
+	 */
+	public static boolean checkIfResign(String token, boolean player) {
+		if(token.equals("resign")){								//Player resigns- match ends
+			//System.out.println("**match ends in resign");
+			if (player == true) {
+				System.out.println("Black wins");					//black wins
+			}
+			else {
+				System.out.println("White wins");					//white wins
+			}
+			
+			return true;
+		}
+		
+		return false;
+	}
+	
 	
 	
 	/**
